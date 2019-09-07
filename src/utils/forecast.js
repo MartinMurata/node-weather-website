@@ -19,7 +19,7 @@ const forecast = (lat,long,callback) => {
             callback(body.error, undefined)
         }else{
             const data = body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is ' + 
-                body.currently.precipProbability + '% chance of rain.'
+                body.currently.precipProbability + '% chance of rain with ' + body.currently.humidity + ' humidity.'
             callback(undefined, data)
         }
     })
