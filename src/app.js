@@ -4,7 +4,10 @@ const express = require('express')
 const hbs = require('hbs')
 const geo = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+
 const app = express()
+//to allow heroku to assign the port for us, or 3000 if they don't 
+const port = process.env.PORT || 3000
 
 //define paths for Express config
 const publicDirPath = path.join(__dirname,'../public')
@@ -97,6 +100,6 @@ app.get('*', (req,res)=>{
 })
 
 //start the server up
-app.listen(3000,()=>{
-    console.log('Server up on port 3000...')
+app.listen(port,()=>{
+    console.log('Server up on port' + port)
 })
