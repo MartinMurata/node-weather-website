@@ -18,8 +18,9 @@ const forecast = (lat,long,callback) => {
         }else if(body.error){
             callback(body.error, undefined)
         }else{
+            const humidity = body.currently.humidity * 100
             const data = body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is ' + 
-                body.currently.precipProbability + '% chance of rain with ' + body.currently.humidity + ' humidity.'
+                body.currently.precipProbability + '% chance of rain with ' + humidity + '% humidity.'
             callback(undefined, data)
         }
     })
