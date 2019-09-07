@@ -19,7 +19,7 @@ const forecast = (lat,long,callback) => {
             callback(body.error, undefined)
         }else{
             const humidity = body.currently.humidity * 100
-            const data = body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is ' + 
+            const data = body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out with a high of ' + body.daily.data[0].temperatureHigh+ ' and a low of '+ body.daily.data[0].temperatureLow+' degrees. There is ' + 
                 body.currently.precipProbability + '% chance of rain with ' + humidity + '% humidity.'
             callback(undefined, data)
         }
